@@ -11,8 +11,10 @@ Checkout the `adobe_xd.talon` file, it has the most commands so far.
 * https://talonvoice.slack.com/ - Chat room with Talon users and developers
 * https://github.com/knausj85/knausj_talon - De facto standard command library (otherwise you only have Talon without commands)
 * https://talon-knausj-cheatsheet.netlify.app/ - Cheat sheet for the `knausj_talon` commands
-* https://www.joshwcomeau.com/blog/hands-free-coding/ - Personal experiences coding hands free by Josh Comeau
 * https://lukassemmler.github.io/mouse-move-tester/ - Movement tester for eye tracking (can jitter a lot)
+* https://www.joshwcomeau.com/blog/hands-free-coding/ - Personal experiences coding hands free by Josh Comeau
+* https://blakewatson.com/journal/playing-minecraft-by-voice-with-talon/ - Playing Minecraft with Talon voice
+* https://www.youtube.com/watch?v=FOJ6OvPf_nM - Example video about programming in vscode with Talon
 
 
 ## Development tips
