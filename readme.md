@@ -25,8 +25,22 @@ Checkout the `adobe_xd.talon` file, it has the most commands so far.
   * Open the `.pyi` files in the builtin Talon modules directory. They show the function definitions (parameters and return type)
   * In the REPL in Talon, run `dir()` or `dir(talon.ctrl)` to show all properties of the object.
   * In the REPL in Talon, run `help(talon.ctrl.mouse_move)` to show the documentaiton for a defined function.
-  * Log all Talon events to the REPL by writing `events.trail()`.
+  * Log all Talon events to the REPL by writing `events.tail()`.
   * Lastly, look at https://github.com/knausj85/knausj_talon for inspiration.
+* Use `events.tail()` to get the process name of apps
+  * Talon files only activate, if the requirements in the context header are met (like app name or operating system)
+  * So open the REPL in Talon and type in `events.tail()`
+  * Example output: 
+    ```
+    >>> events.tail()
+    user\knausj_talon\code\switcher.py | context.refresh user.knausj_talon.code.switcher (lists)
+    main | win.focus app=Windows-Befehlsprozessor exe=C:\Windows\system32\cmd.exe title='Talon - REPL'
+    user\knausj_talon\draft_editor\draft_editor.py | context.refresh user.knausj_talon.draft_editor.draft_editor (tags)
+    main | win.focus app=MSYS2 terminal exe=C:\Program Files\Git\usr\bin\mintty.exe title='MINGW64:/c/Users/Lukas/Documents/Webentwicklung/portfolio-uxd-handlebars'
+    user\knausj_talon\draft_editor\draft_editor.py | context.refresh user.knausj_talon.draft_editor.draft_editor (tags)
+    main | win.focus app=Windows-Befehlsprozessor exe=C:\Windows\system32\cmd.exe title='Talon - REPL'
+    user\knausj_talon\draft_editor\draft_editor.py | context.refresh user.knausj_talon.draft_editor.draft_editor (tags)
+    ```
 
 
 ## General tips
