@@ -27,6 +27,63 @@ Checkout the `adobe_xd.talon` file, it has the most commands so far.
   * In the REPL in Talon, run `help(talon.ctrl.mouse_move)` to show the documentaiton for a defined function.
   * Log all Talon events to the REPL by writing `events.trail()`.
   * Lastly, look at https://github.com/knausj85/knausj_talon for inspiration.
+* Use `events.tail()` to get the process name of apps
+  * Talon files only activate, if the requirements in the context header are met (like app name or operating system)
+  * So open the REPL in Talon and type in `events.tail()`
+  * Example output: 
+    ```
+    >>> events.tail()
+    user\knausj_talon\code\switcher.py | context.refresh user.knausj_talon.code.switcher (lists)
+    main | win.focus app=Windows-Befehlsprozessor exe=C:\Windows\system32\cmd.exe title='Talon - REPL'
+    user\knausj_talon\draft_editor\draft_editor.py | context.refresh user.knausj_talon.draft_editor.draft_editor (tags)
+    main | win.focus app=MSYS2 terminal exe=C:\Program Files\Git\usr\bin\mintty.exe title='MINGW64:/c/Users/Lukas/Documents/Webentwicklung/portfolio-uxd-handlebars'
+    user\knausj_talon\draft_editor\draft_editor.py | context.refresh user.knausj_talon.draft_editor.draft_editor (tags)
+    main | win.focus app=Windows-Befehlsprozessor exe=C:\Windows\system32\cmd.exe title='Talon - REPL'
+    user\knausj_talon\draft_editor\draft_editor.py | context.refresh user.knausj_talon.draft_editor.draft_editor (tags)
+    ```
+* Get name of currently running app
+  * Run `actions.user.talon_get_active_context()` in REPL
+    * Example: 
+      ```
+      >>> actions.user.talon_get_active_context()
+      'Name: Windows-Befehlsprozessor\nExecutable: C:\\Windows\\system32\\cmd.exe\nBundle: \nTitle: Talon - REPL'
+      ```
+  * Run `ui.active_app()` in REPL
+    * Example:
+      ```
+      >>> ui.active_app()
+      App(pid=752, "Windows-Befehlsprozessor")
+      ```
+* Talon has a storage system, an internal sqlite3 database at `C:\Users\Lukas\AppData\Roaming\talon\.sys\user.db` 
+  * You can access it via `C:\Program Files\Talon\Lib\site-packages\talon\scripting\storage.pyi` (in REPL: `storage`)
+  * Currently not very well documented
+  * Example script where storage is used: https://github.com/AndrewDant/screen-spots/blob/main/screen-spots.py
+  * General usage: 
+    * Get from storage: `anything_from_storage = storage.get("user.some_key_name")`
+    * Set to storage: `storage.set("user.some_key_name", anything_to_storage)` 
+* List all actions with `actions.list()` or `actions.find('')` in REPL
+  * Example:
+    ```
+    >>> actions.list()
+    app.bundle() -> str
+      Get active app's bundle identifier
+    app.executable() -> str
+      Get active app's executable name
+    app.name() -> str
+      Get active app's name
+    app.notify(body: str = '', title: str = '', subtitle: str = '', sound: bool = False)
+      Show a desktop notification
+    ...
+    ```
+* Difference between *Modes* and *Tags*: (excerpt from https://talonvoice.slack.com/ in Channel `#talon-scripting` at 2021-12-16)
+  > wen  13:36 Uhr  
+  > What is functionally the difference between modes and tags?  
+  > You can turn both on and off. You can match on either in contexts. You can have multiple active of either. Is there some deep difference that I am missing?  
+  >
+  > aegis:talon:  17:03 Uhr  (creator of Talon Voice)
+  > Philosophical  
+  > Tags are meant to be contextual plumbing  
+  > Modes are meant to be rare and toggled manually by the user  
 
 
 ## General tips
