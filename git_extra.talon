@@ -1,0 +1,18 @@
+giddy status: insert("git s")
+giddy log: insert("git lg")
+giddy reset: insert("git reset")
+giddy add: insert("git add ")
+giddy diff: insert("git diff ")
+giddy siff: insert("git diffs ")
+giddy commit:
+    insert("git commit -m \"\"")
+    key(left)
+giddy push: insert("git reset")
+giddy stash: insert("git stash")
+giddy branch:
+    insert("git checkout -b ")
+    key(left)
+giddy yep: key(y enter)
+giddy no: key(n enter)
+giddy split: key(s enter)
+giddy edit: key(e enter)
